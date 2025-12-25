@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Basics </title>
+</head>
+<body>
+  <h1>Javascript Basics</h1>
+
+  <script>
+    
+ //  VARIABLES (var, let, const)
+
+    var a = 10;
+    let b = 20;
+    const c = 30;
+
+    console.log("var a:", a);
+    console.log("let b:", b);
+    console.log("const c:", c);
+
+    
+     // HOISTING
+    
+      
+    console.log(x); // undefined (hoisted)
+    var x = 100;
+
+    // console.log(y); // ReferenceError
+    let y = 200;
+
+    
+ // SCOPE
+    
+    var globalVar = "I am global";
+
+    function testScope() {
+      let localVar = "I am local";
+      console.log(globalVar); // accessible
+      console.log(localVar);  // accessible
+    }
+    testScope();
+    // console.log(localVar);  not accessible
+
+   
+ // PRIMITIVE DATA TYPES
+    
+    let num = 21;              // Number
+    let str = "Sudhan";    // String
+    let bool = true;           // Boolean
+    let undef;                 // Undefined
+    let n = null;              // Null
+    let syml = Symbol("id");    // Symbol
+    let bigt = 123n;            // BigInt
+    
+    console.log(num,  str,  bool);
+    console.log(undef, n, syml, bigt);
+
+   
+// OPERATORS
+
+
+    // Arithmetic
+    console.log(10 + 5, 10 - 5, 10 * 5, 10 / 5, 10 % 3);
+
+    // Assignment
+    let z = 10;
+    z += 5;
+    console.log(z);
+
+    // Comparison
+    console.log(5 == "5");   // true
+    console.log(5 === "5");  // false
+
+    // Logical
+    console.log(true && false);
+    console.log(true || false);
+    console.log(!true);
+
+   
+// TRUTHY & FALSY VALUES
+
+   // Falsy values
+    console.log(Boolean(false));
+    console.log(Boolean(0));
+    console.log(Boolean(""));
+    console.log(Boolean(null));
+    console.log(Boolean(undefined));
+    console.log(Boolean(NaN));
+
+   // Truthy values
+    console.log(Boolean(1));
+    console.log(Boolean("hello"));
+    console.log(Boolean([]));
+    console.log(Boolean({}));
+    console.log(Boolean("0"));
+
+    
+// IF CONDITION 
+
+        let value = "";
+
+    if (value) {
+      console.log("Truthy value");
+    } else {
+      console.log("Falsy value");
+    }
+  </script>
+</body>
+</html>
