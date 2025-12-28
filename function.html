@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+<body>
+    <h1>JS Functions</h1>
+
+    <script>
+
+     //Function declaration
+        //function add(a, b) {return a + b};
+     //console.log(add(25,5));
+
+      // Function expression
+     //const add = function(a,b){ return a+b};
+    //console.log(add(6,4));
+     
+    //  Arrow Function 
+      //const add = (a,b) =>{return a+b};
+      //console.log(add(5,5));
+      
+
+    //Binding
+    //const user = {name: "Sudhan",show() {console.log(this.name)}};
+    //user.show();
+
+
+    // Parameter vs Argument
+    //function add(a, b) {   //---  parameters
+    //return a + b};
+    //add(2, 3);      //--- arguments
+    //console.log(add(2, 3));
+    
+     
+    // Arrow functions:
+    // Basic arrow function
+    //const add = (a, b) => {return a + b};
+    //console.log(add(2, 3));
+
+
+    // single line arrow function
+    //const add = (a, b) => a + b;
+    //console.log(add(4, 6));
+
+    // single parameter
+    //const multiple = s => s * s;
+    //console.log(multiple(5));
+
+    // multiple statement
+    //const multiply = (a, b) => {
+    //let result = a * b;
+    //return result};
+    //console.log(multiply(3, 4));
+
+    // No parameter
+    //const greet = () => "Hello Sudhan";
+    //console.log(greet());
+
+    // Object return
+    //const userName = () => ({ 
+    //name: "Sudharsan", 
+    //role: "Alone Warrior"});
+    //console.log(userName());
+
+
+   // functions
+   
+    //function add1(a, b) {return a + b};  // Function Declaration
+
+    //const add2 = function (a, b) {return a + b};   // Function Expression
+
+    //const add3 = (a, b) => a + b;  // Arrow Function
+     
+    //console.log(add1(2,3),add2(5,5),add3(10,5));
+
+    
+    // Arrow function
+    // return 
+    //const greet1 = (Sudharsan) => {
+    //return "Hello: " + Sudharsan};
+    //console.log(greet1("Sudharsan")); 
+
+    // implicit return
+    //const greet2 = (Sudharsan) => "Hello, " + Sudharsan;
+    //console.log(greet2("Sudharsan")); 
+
+    // Single parameter
+    //const greet3 = name => `Hello:, ${name}`;
+    //console.log(greet3("Sudharsan")); 
+
+
+    // CalculateBill
+    //Normal Function
+    //function calculateBill(amount,taxPercentage){
+    //const tax = (amount*taxPercentage) /100
+    //  return tax + amount ;
+    //}
+    //console.log(calculateBill(100,150));
+    
+    //Arrow function
+    //const calculateBill = (amount,taxPercentage) =>{
+    //    const tax = (amount*taxPercentage) /10
+    //    return tax + amount;
+    //}
+    //console.log(calculateBill(100,50));
+    
+
+    //4
+    //const user = {
+    //    name:"Sudharsan",
+
+    //    sayName: function(){
+    //    console.log(this.name);
+    //},
+    //   sayNameArrow: ()=>{
+    //    console.log(this.name);
+        
+    //   }
+    //};
+    //user.sayName();
+    //user.sayNameArrow();
+
+
+    //5
+    //const square = a => a * a;
+    //console.log(square(8));
+
+    
+    //6
+    // Normal function
+    //function sumAll (...numbers){
+    //    let sum = 0;
+    //    for (let num of numbers){
+    //        sum += num;
+    //    }
+    //    return sum;
+    //}
+    //console.log(sumAll(15,10,5));
+    
+    // Arrow function
+    //const sumAllArrow = (...numbers) => numbers.reduce((sum,num)=>sum + num);
+    //console.log(sumAllArrow(1,2,3,4));
+
+
+    //7
+    //const mark = [98,45,67,30,88,76];
+
+    //function getPassedMark (marks){
+    //    return marks.filter(mark => mark >= 50)
+    //}
+    //console.log(getPassedMark(mark));
+    
+
+     
+    //8
+    //const formatName = (firstName, lastName) =>
+    //firstName.toUpperCase() + " " + lastName.toUpperCase();
+    
+    //function formatName (firstName,lastName){
+    //    return firstName.toUpperCase() + " " + lastName.toUpperCase();
+    //}
+    // console.log(formatName("Ananth","Raj"));
+
+    //const formatName2 = function (firstName,lastName){
+    //    return firstName.toUpperCase() + " " + lastName.toUpperCase();
+    // }
+    // console.log(formatName2("SR KID","Sudharsan"));
+     
+     
+     
+    //9
+    //console.log(add(2,3));
+    //console.log(sub(5,2));
+    //function add (a,b){
+    //    return a + b;
+    //}
+    //const sub = (a,b) => {
+    //    return a - b;
+    //};
+
+
+
+    //function add (a,b){
+    //    return a + b;
+    //}
+    //const sub = (a,b) => {
+    //    return a - b;
+    //}
+    //console.log(add(2,3));
+    //console.log(sub(5,2));
+
+
+
+
+    //10
+    //  A Greting Function
+    //const createGreeting = greeting => name => `${greeting}, ${name}`;
+    
+    //const greetHello = createGreeting ("Hello");
+    //console.log(greetHello("Sudharsan"));
+
+    //const greetTamil = createGreeting ("Vanakkam");
+    //console.log(greetTamil("Ananth"));
+
+
+    // Frequency of character
+    //function getCharFrequency(str){
+    //    const freq = {};
+    //    for (let char of str){
+    //        if (freq[char]){
+    //            freq[char]++;
+    //        } else {
+    //            freq [char] = 1;
+    //        }
+    //    }
+    //    return freq;
+    //} 
+    //console.log(getCharFrequency("orange"));
+    
+    
+    //Find the second largest number
+    //function secondLargest(arr){
+    //    let largest = -Infinity;
+    //    let second = -Infinity;
+    //    for (let num of arr){
+    //        if (num > largest){
+    //            second = largest;
+    //            largest = num;
+    //        } else if (num < largest && num > second){
+    //            second = num;
+    //        }
+    //    }
+    //    return second === -Infinity ? null :second;
+    //}
+    //console.log(secondLargest([20,30,10]));
+    
+
+    // Check Anagram
+    //function isAnagram(str1, str2){
+    //const clean1 = str1.toLowerCase().replaceAll(" ", "");
+    //const clean2 = str2.toLowerCase().replaceAll(" ", "");
+    //if (clean1.length !== clean2.length) return false;
+    //const freq = {};
+    //for (let char of clean1){
+    //    freq[char] = (freq[char] || 0) + 1;
+    //}
+    //for (let char of clean2){
+    //    if (!freq[char]) return false;
+    //    freq[char]--;
+    //}
+    //return true;
+    //}
+    //console.log(isAnagram("listen", "silent"));
+    //console.log(isAnagram("hello", "world"));
+
+    
+    // Remove duplicate from arrary
+    //function uniqueValues(arr) {
+    //const result = [];
+    //for (let value of arr) {
+    //if (!result.includes(value)) {
+    //  result.push(value);
+    //}
+    //}
+    //return result;
+    //}
+    //console.log(uniqueValues([1, 2, 2, 3, 1, 4]));
+
+
+    //group people age
+    //function groupByAge(people) {const grouped = {};
+    //for (let person of people) {const age = person.age;
+    // if (!grouped[age]) {
+    //  grouped[age] = [];
+    //}
+    //grouped[age].push(person.name);
+    //}
+    //return grouped;
+    //}
+    //const people = [
+    //{ name: "Ajay", age: 20 },
+    //{ name: "Ravi", age: 21 },
+    //{ name: "Kumar", age: 20 },
+    //{ name: "Sara", age: 22 },
+    //];
+    //console.log(groupByAge(people));
+
+
+    // Factorial function
+    //function factorial(n) {let result = 1;
+    // for (let i = 1; i <= n; i++) {
+    //result *= i;
+    //}
+    //return result;
+    //}
+    //console.log(factorial(5)); // 120
+
+
+
+    //Reverse a string
+    //function reverseString (str){
+    //    let reversed = "";    
+    //    for (let char of str){
+    //        reversed = char + reversed;
+    //  }
+    //    return reversed;
+    //}
+    //console.log(reverseString("Hello"));
+    
+
+    // Prime number
+    //function isPrime(n) {
+    //if (n <= 1) return false;
+    //for (let i = 2; i <= Math.sqrt(n); i++) {
+    //if (n % i === 0) return false;
+    //}
+    //return true;
+    //}
+    //console.log(isPrime(7));  
+    //console.log(isPrime(10)); 
+
+
+
+    </script>
+    
+</body>
+</html>
