@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONDITION</title>
+</head>
+<body>
+    <h1>JS CONDITION</h1>
+
+    <script>
+
+          
+        //function getEvenNumbers(arr){
+        //    let evenNumbers = [];
+            
+        //    for (let a = 0;a < arr.length;a++){
+        //        if(arr[a] % 2 === 0){
+        //            evenNumbers.push(arr[a]);
+        //        }
+        //    }
+        //    return evenNumbers;
+        //} 
+        //console.log(getEvenNumbers([1,2,3,4,5,6,7,8]));
+        
+        
+        //2
+        //function getDayOfWeek (dayNumber){
+        //    let D;
+
+        //    switch (dayNumber){
+        //        case 1:
+        //            D = "Monday";
+        //            break;
+        //        case 2:
+        //            D = "Tuesday";
+        //            break;
+        //        case 3:
+        //            D = "Wednesday";
+        //            break;
+        //        case 4:
+        //            D = "Thursday";
+        //            break;
+        //        case 5 :
+        //            D = "Friday";
+        //            break;
+        //        case 6:
+        //            D = "Saturday";
+        //            break;
+        //        case 7:
+        //            D = "Sunday";
+        //            break;
+
+        //        default:
+        //            D = "invalid input"
+        //    }
+        //    return D; 
+        //}
+        //console.log(getDayOfWeek(2));
+        //console.log(getDayOfWeek(8));
+        
+
+        //3
+        //function countGrades (students){
+        //    let gradeCount = {
+        //        A: 0,
+        //        B: 0,
+        //        C: 0,
+        //    };
+        //    for (let i = 0; i< students.length; i++) {
+        //        let marks = students[i].marks;
+
+        //        if (marks >= 90){
+        //            gradeCount.A++;
+        //        } else if (marks >= 75){
+        //            gradeCount.B++;
+        //        } else {
+        //            gradeCount.C++;
+        //        }
+        //    }
+        //    return gradeCount;
+        //}
+
+        //    const student = [
+        //    { name: "Akash", marks: 95 },
+        //    { name: "Bala", marks: 82 },
+        //    { name: "Chandru", marks: 74 },
+        //    { name: "Dhiyaku", marks: 90 },
+        //    { name: "Ezhil", marks: 60 }
+        //    ];
+
+        //console.log(countGrades(student));
+
+
+        //4
+        //function checkTruthyFalsy(value) {
+        //return value ? "truthy" : "falsy";
+        //}
+
+        //console.log(checkTruthyFalsy(0));       
+        //console.log(checkTruthyFalsy(""));         
+        //console.log(checkTruthyFalsy(null));       
+        //console.log(checkTruthyFalsy(undefined)); 
+        //console.log(checkTruthyFalsy([]));
+        //console.log(checkTruthyFalsy({}));        
+        //console.log(checkTruthyFalsy(false));      
+        //console.log(checkTruthyFalsy("hello"));    
+
+
+        //5
+        //function truthyValue (arr){
+        //    let result = [];
+
+        //    for (let i = 0; i< arr.length; i++){
+        //        if (arr[i]){
+        //            result.push(arr[i]);
+        //        }
+        //    }
+        //    return result;
+        //}
+        //const mixedArray = [ 1,"hello",true,[],{}];
+
+        //console.log(truthyValue(mixedArray));
+
+        
+        //6
+        function getDisplayName(firstName, lastName, nickname) {
+        if (firstName && lastName) {
+        return firstName + " " + lastName;
+        } 
+         else if (firstName) {
+        return firstName;
+        } 
+        else if (nickname) {
+        return nickname;
+        } 
+        else {
+        return "Anonymous";
+        }
+        }
+
+        console.log(getDisplayName("Arun", "Kumar", "AK"));   
+        console.log(getDisplayName("Arun", "", "AK"));       
+        console.log(getDisplayName("", "", "AK"));           
+        console.log(getDisplayName(null, null, null));       
+        console.log(getDisplayName(undefined, "", "Hero"));  
+
+
+        //7
+
+        for (let i = 0; i < 3; i++) {
+        setTimeout(function () {
+        console.log(i);
+         }, 2000);
+        }
+
+
+        //8
+
+        function testReassignment() {
+
+         // var
+        var a = 10;
+        a = 20; 
+        console.log("var a:", a);
+
+        // let
+        let b = 30;
+        b = 40; 
+        console.log("let b:", b);
+
+        // const (primitive)
+        const c = 50;
+        // c = 60;
+
+        // const object
+        const person = {
+        name: "Arun",
+        age: 25
+        };
+
+        // Modify property
+        person.age = 26;
+        console.log("const object:", person);
+        }
+        testReassignment();
+
+
+        //9
+
+        function createMultiplier(multiplier) {
+        return function (number) {
+        return multiplier * number;
+        };
+        }
+
+
+        const double = createMultiplier(2);
+        console.log(double(5));   // 10
+        console.log(double(10));  // 20
+
+        const triple = createMultiplier(3);
+        console.log(triple(4));   // 12
+        console.log(triple(7));   // 21
+
+        const tenTimes = createMultiplier(10);
+        console.log(tenTimes(6)); // 60
+
+
+        //10
+
+        function secretPassword() {
+        //  Private variable (outside access illa)
+        let password = "";
+
+        return {
+        setPassword: function (newPass) {
+            password = newPass;
+        },
+        checkPassword: function (guess) {
+            return password === guess;
+        }
+        };
+        }
+
+        const mySecret = secretPassword();
+
+        mySecret.setPassword("myp@ss123");
+
+        console.log(mySecret.checkPassword("myp@ss123")); // true
+        console.log(mySecret.checkPassword("wrong"));     // false
+
+        //  Direct access not possible
+        console.log(mySecret.password); // undefined
+
+
+        //11
+
+        function once(fn) {
+        let hasBeenCalled = false;
+        let result;
+
+        return function (...args) {
+        if (!hasBeenCalled) {
+            result = fn.apply(this, args);
+            hasBeenCalled = true;
+        }
+        return result;
+        };
+        }
+
+        function add(a, b) {
+        console.log("Function executed");
+        return a + b;
+        }
+
+        const addOnce = once(add);
+
+        console.log(addOnce(2, 3));   // Function executed → 5
+        console.log(addOnce(5, 10));  // (no execution) → 5
+        console.log(addOnce(100, 200)); // (no execution) → 5
+
+    </script>
+
+</body>
+</html>
