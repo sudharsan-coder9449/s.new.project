@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6+</title>
+</head>
+<body>
+    
+    <h1>ES6+ METHOD</h1>
+
+    <script>
+
+//     //let & const
+//     //1
+
+//         const name = "Sudharsan";
+//         let age = 22;
+
+//         function greet() {
+//         const message = "Hello " + name;
+//         if (age >= 18) {
+//         let status = "Adult";
+//         console.log(status);
+//         }
+//         console.log(message);
+//         }
+//         greet();
+
+
+//    // 2
+    
+//         if (true) {
+//         let message = "Hello, block scope!";
+//         console.log(message); // Works
+//         }
+//         console.log(message); //  ReferenceError: message is not defined
+
+
+//    // 3
+    
+//         const person = {
+//         name: "Sudharsan"
+//         };
+//         person.name = "Kumar"; // Allowed
+//         console.log(person.name);
+
+//     //4
+
+//         for (var i = 1; i <= 3; i++) {
+//         setTimeout(function () {
+//         console.log(i);
+//         }, 1000)}
+
+//         for (let i = 1; i <= 3; i++) {
+//         setTimeout(function () {
+//         console.log(i);
+//         }, 1000)}
+
+//     //Arrow function
+
+//     //1
+//         function add(a, b) {
+//         return a + b;
+//         }
+//         console.log(add(5, 3)); // 8
+
+//         const add = (a, b) => {
+//         return a + b;
+//         };
+//         console.log(add(5, 3)); // 8
+
+
+//     //2
+
+//         const greet = name => {
+//         console.log("Hello, " + name)};
+//         greet("Sudharsan");
+
+
+//     //3
+    
+//         const createUser = (name, age) => ({
+//         name: name,
+//         age: age
+//         });
+//         console.log(createUser("Sudharsan", 22));
+
+//     //Template literals
+//     //1
+
+//         const user = {
+//         name: "Sudharsan",
+//         age: 22,
+//         role: "Backend Developer"
+//         };
+//         console.log(`User Details:
+//         Name : ${user.name}
+//         Age  : ${user.age}
+//         Role : ${user.role}`);
+
+//     //2
+    
+//         const name = "Sudharsan";
+//         const age = 22;
+//         const city = "Chennai";
+//         const message = `My name is ${name}, I am ${age} years old and I live in ${city}.`;
+//         console.log(message);
+
+//     //3
+    
+//         const message1 = `Hello Sudharsan,
+//         Welcome to JavaScript ES6.
+//         Template literals make
+//         multiline strings easy!`;
+//         console.log(message1);
+
+//    // class task
+//     //1
+//         class Student {
+//         constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//         }
+//         }
+//         const student1 = new Student("Ananth", 21);
+//         console.log(student1.name); // Ananth
+//         console.log(student1.age);  // 21
+//         console.log(student1);
+
+//    // 2
+
+//         class BankAccount {
+//         constructor(accountHolder, balance = 0) {
+//         this.accountHolder = accountHolder;
+//         this.balance = balance;
+//         }
+//         deposit(amount) {
+//         this.balance += amount;
+//         console.log(`Deposited ₹${amount}. Current balance: ₹${this.balance}`);
+//         }
+//         withdraw(amount) {
+//         if (amount > this.balance) {
+//         console.log("Insufficient balance");
+//         } else {
+//         this.balance -= amount;
+//         console.log(`Withdrawn ₹${amount}. Current balance: ₹${this.balance}`);
+//         }
+//         }
+//         }
+
+//         // create account
+//         const account1 = new BankAccount("Sudharsan", 1000);
+//         // operations
+//         account1.deposit(500);
+//         account1.withdraw(300);
+//         account1.withdraw(2000);
+
+
+//     //3
+
+//         class Student {
+//         constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//         }
+//         // display student details
+//         display() {
+//         console.log(`Name: ${this.name}, Age: ${this.age}`);
+//         }
+//         }
+//         //  Create 3 objects from the class
+//         const student1 = new Student("Ananth", 21);
+//         const student2 = new Student("Rasul", 21);
+//         const student3 = new Student("Regunath", 22);
+//         // Call the method to display details
+//         student1.display(); 
+//         student2.display();
+//         student3.display();
+
+
+    
+// /**********************************************************
+//  * IMPORT / EXPORT TASKS (Simulated in one file)
+//  **********************************************************/
+
+// function add(a, b) {
+//   return a + b;
+// }
+// function multiply(a, b) {
+//   return a * b;
+// }
+// const greeting = (name) => `Hello ${name}`;
+
+// class User {
+//   constructor(name) {
+//     this.name = name;
+//   }
+//   sayHi() {
+//     return `Hi, I am ${this.name}`;
+//   }
+// }
+
+// // usage
+// console.log("Add:", add(2, 3));
+// console.log("Multiply:", multiply(3, 4));
+// console.log(greeting("Sudharsan"));
+// const user = new User("Sudharsan");
+// console.log(user.sayHi());
+
+// /**********************************************************
+//  *  DESTRUCTURING TASKS
+//  **********************************************************/
+
+// // Array destructuring
+// const arr = [10, 20, 30];
+// const [a, b] = arr;
+// console.log("Array Destructuring:", a, b);
+
+// // Object destructuring
+// const person = { name: "Ram", age: 25 };
+// const { name, age } = person;
+// console.log("Object Destructuring:", name, age);
+
+// // Rename variables
+// const { name: userName } = person;
+// console.log("Renamed Variable:", userName);
+
+// // Function parameter destructuring
+// function showUser({ name, age }) {
+//   console.log(`Name: ${name}, Age: ${age}`);
+// }
+// showUser(person);
+
+// /**********************************************************
+//  *  SPREAD OPERATOR TASKS
+//  **********************************************************/
+
+// const arr1 = [1, 2, 3];
+// const copyArr = [...arr1];
+// console.log("Copied Array:", copyArr);
+
+// const arr2 = [4, 5];
+// const merged = [...arr1, ...arr2];
+// console.log("Merged Array:", merged);
+
+// const obj1 = { a: 1, b: 2 };
+// const updatedObj = { ...obj1, b: 99 };
+// console.log("Updated Object:", updatedObj);
+
+// function sum(x, y, z) {
+//   return x + y + z;
+// }
+// console.log("Spread in Function:", sum(...arr1));
+
+// /**********************************************************
+//  *  REST OPERATOR TASKS
+//  **********************************************************/
+
+// function total(...nums) {
+//   return nums.reduce((acc, val) => acc + val, 0);
+// }
+// console.log("Unlimited Args:", total(1, 2, 3, 4));
+
+// function avg(...nums) {
+//   return total(...nums) / nums.length;
+// }
+// console.log("Average:", avg(10, 20, 30));
+
+// function restDestructure(a, ...rest) {
+//   console.log("First:", a, "Rest:", rest);
+// }
+// restDestructure(1, 2, 3, 4);
+
+// // Rest vs Spread
+// // Spread → expands
+// // Rest → collects
+
+// /**********************************************************
+//  *  TERNARY OPERATOR TASKS
+//  **********************************************************/
+
+// const num = 7;
+// console.log(num % 2 === 0 ? "Even" : "Odd");
+
+// const marks = 45;
+// console.log(marks >= 40 ? "Pass" : "Fail");
+
+// // Nested ternary
+// const grade =
+//   marks >= 80 ? "A" :
+//   marks >= 60 ? "B" :
+//   marks >= 40 ? "C" : "Fail";
+// console.log("Grade:", grade);
+
+// /**********************************************************
+//  *  OPTIONAL CHAINING TASKS
+//  **********************************************************/
+
+// const data = {
+//   user: {
+//     profile: {
+//       email: "test@mail.com"
+//     }
+//   }
+// };
+
+// console.log(data.user?.profile?.email);
+// console.log(data.admin?.profile?.email); // undefined
+
+// const users = [{ name: "A" }];
+// console.log(users?.[0]?.name);
+
+// /**********************************************************
+//  *  NULLISH COALESCING TASKS
+//  **********************************************************/
+
+// console.log(0 || 10);    // 10 (wrong)
+// console.log(0 ?? 10);   // 0 (correct)
+
+// const empty = "";
+// console.log(empty ?? "Default");
+
+// const apiUser = null;
+// console.log(apiUser ?? "Guest");
+
+// /**********************************************************
+//  * ES2024 – Promise.withResolvers()
+//  **********************************************************/
+
+// // Old way
+// let resolveOld, rejectOld;
+// const oldPromise = new Promise((res, rej) => {
+//   resolveOld = res;
+//   rejectOld = rej;
+// });
+// resolveOld("Old Promise Resolved");
+
+// // ES2024 way (concept)
+// console.log("ES2024 gives cleaner manual control");
+
+// /**********************************************************
+//  *  INTERVIEW THEORY (Short Answers in Comments)
+//  **********************************************************/
+
+// // Closure → Function remembers outer variables
+// // Prototype → JS object inheritance
+// // ES6 → Cleaner, readable, modern JS
+// // Arrow → No own this
+// // Event Loop → Handles async execution
+
+// /**********************************************************
+//  *  LOGIC QUESTIONS
+//  **********************************************************/
+
+// // 1️ First Non-Repeating Character
+// function firstUnique(str) {
+//   const freq = {};
+//   for (let ch of str) freq[ch] = (freq[ch] || 0) + 1;
+//   for (let ch of str) if (freq[ch] === 1) return ch;
+// }
+// console.log("First Unique:", firstUnique("aabbcdde"));
+
+// // 2️ Move Zeros to End
+// function moveZeros(arr) {
+//   return [...arr.filter(n => n !== 0), ...arr.filter(n => n === 0)];
+// }
+// console.log("Move Zeros:", moveZeros([1,0,3,0,5,0,2]));
+
+// // 3️ String Rotation
+// function isRotation(a, b) {
+//   return a.length === b.length && (a + a).includes(b);
+// }
+// console.log("Rotation:", isRotation("abcd", "cdab"));
+
+// // 4️ Longest Consecutive Sequence
+// function longestSequence(nums) {
+//   const set = new Set(nums);
+//   let max = 0;
+//   for (let n of set) {
+//     if (!set.has(n - 1)) {
+//       let len = 1;
+//       while (set.has(n + len)) len++;
+//       max = Math.max(max, len);
+//     }
+//   }
+//   return max;
+// }
+// console.log("Longest Sequence:", longestSequence([100,4,200,1,3,2]));
+
+// 5️ Balanced Brackets
+function isBalanced(str) {
+  const stack = [];
+  const map = { ')': '(', ']': '[', '}': '{' };
+  for (let ch of str) {
+    if ("([{".includes(ch)) stack.push(ch);
+    else if (map[ch] !== stack.pop()) return false;
+  }
+  return stack.length === 0;
+}
+console.log("Balanced:", isBalanced("{[()]}"));
+console.log("Balanced:", isBalanced("{[(])}"));
+
+    </script>
+
+</body>
+</html>
