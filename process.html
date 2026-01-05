@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    <h1>The Promise Process</h1>
+
+<script>
+
+    //Callback function
+    //1
+
+    // const getDatas = (callback)=>{
+    //     setTimeout(()=>{
+    //         callback("Data is loading")
+    //     },3000)
+    // }
+
+    // getDatas((result)=>{
+    //     console.log(result);
+        
+    // })
+
+    function showMessage(callback) {
+    setTimeout(function () {
+    console.log("Hello! This message is printed after 2 seconds");
+    callback();
+    }, 2000)}
+    function afterMessage() {
+    console.log("Callback function executed")}
+
+    showMessage(afterMessage);
+
+
+    //2
+    function calculator(a, b, callback) {
+  callback(a, b);
+}
+
+function add(x, y) {
+  console.log("Addition:", x + y);
+}
+
+function multiply(x, y) {
+  console.log("Multiplication:", x * y);
+}
+
+calculator(5, 3, add);
+calculator(5, 3, multiply);
+
+//3
+function step1(callback) {
+  setTimeout(() => {
+    console.log("Step 1 completed");
+    callback();
+  }, 1000);
+}
+
+function step2(callback) {
+  setTimeout(() => {
+    console.log("Step 2 completed");
+    callback();
+  }, 1000);
+}
+
+function step3() {
+  setTimeout(() => {
+    console.log("Step 3 completed");
+  }, 1000);
+}
+
+step1(() => {
+  step2(() => {
+    step3();
+  });
+});
+
+
+//4
+function divide(a, b, callback) {
+  if (b === 0) {
+    callback("Error: Cannot divide by zero", null);
+  } else {
+    callback(null, a / b);
+  }
+}
+
+divide(10, 2, (error, result) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Result:", result);
+  }
+});
+
+divide(10, 0, (error, result) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Result:", result);
+  }
+});
+
+
+//5
+
+function fetchUserData(callback) {
+  console.log("Fetching user data...");
+
+  setTimeout(() => {
+    const user = {
+      id: 1,
+      name: "Sudharsan",
+      role: "Developer"
+    };
+    callback(user);
+  }, 2000);
+}
+
+fetchUserData((data) => {
+  console.log("User Data Received:");
+  console.log(data);
+});
+
+
+promise
+1
+
+console.log("Start");
+
+const delayPromise = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve("Promise resolved after 2 seconds");
+  }, 2000);
+});
+
+delayPromise.then((message) => {
+  console.log(message);
+});
+
+console.log("End");
+
+
+//2
+
+const rejectPromise = new Promise((resolve, reject) => {
+  let success = false;
+
+  if (success) {
+    resolve("Operation successful");
+  } else {
+    reject("Something went wrong!");
+  }
+});
+
+rejectPromise
+  .then((result) => console.log(result))
+  .catch((error) => console.error("Error:", error));
+
+
+  //3
+
+  const numberPromise = new Promise((resolve) => {
+  resolve(5);
+});
+
+numberPromise
+  .then((num) => {
+    console.log("Initial value:", num);
+    return num * 2;
+  })
+  .then((result) => {
+    console.log("After multiply:", result);
+    return result + 10;
+  })
+  .then((finalValue) => {
+    console.log("Final value:", finalValue);
+  });
+
+
+  //4
+
+  const p1 = new Promise((resolve) => {
+  setTimeout(() => resolve("Promise 1 done"), 1000);
+});
+
+const p2 = new Promise((resolve) => {
+  setTimeout(() => resolve("Promise 2 done"), 2000);
+});
+
+const p3 = new Promise((resolve) => {
+  setTimeout(() => resolve("Promise 3 done"), 3000);
+});
+
+Promise.all([p1, p2, p3]).then((results) => {
+  console.log("All promises resolved:");
+  console.log(results);
+});
+
+
+//5
+
+function getDataPromise() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Data received using promise");
+    }, 1000);
+  });
+}
+
+getDataPromise().then((data) => {
+  console.log(data);
+});
+
+
+//Async amd await
+//1
+
+async function getNumber() {
+  return 10;
+}
+
+getNumber().then((result) => {
+  console.log("Returned value:", result);
+});
+
+
+//2
+
+async function divide(a, b) {
+  try {
+    if (b === 0) {
+      throw new Error("Cannot divide by zero");
+    }
+    let result = a / b;
+    console.log("Result:", result);
+  } catch (error) {
+    console.log("Error:", error.message);
+  }
+}
+
+divide(10, 0);
+
+
+//3
+
+function stepOne() {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve("Step 1 completed"), 1000);
+  });
+}
+
+function stepTwo() {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve("Step 2 completed"), 1000);
+  });
+}
+
+async function runSteps() {
+  let res1 = await stepOne();
+  console.log(res1);
+
+  let res2 = await stepTwo();
+  console.log(res2);
+}
+
+runSteps();
+
+
+//4
+
+function taskA() {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve("Task A done"), 2000);
+  });
+}
+
+function taskB() {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve("Task B done"), 1000);
+  });
+}
+
+async function runParallel() {
+  let results = await Promise.all([taskA(), taskB()]);
+  console.log(results);
+}
+
+runParallel();
+
+
+//5
+
+function fetchData() {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve("Data received"), 1000);
+  });
+}
+
+fetchData().then((data) => {
+  console.log(data);
+});
+
+</script>
+
+
+</body>
+</html>
